@@ -1,0 +1,67 @@
+/* Stack the navigation, main content and footer over the full window height. */
+/* Let the whole page fill the window even with only a short greeting.
+   Flex stacks its sections from the navigation down to the footer. */
+.page-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Growing this section pushes the footer down when there is little content. */
+/* Give the middle of the page the spare height and comfortable spacing.
+   The footer can then stay below the content rather than drifting upwards. */
+.page-content {
+  flex-grow: 1;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+/* Separate the page content from the background with a padded white panel. */
+/* A quiet white panel keeps the forms and cards separate from the background.
+   Its padding leaves a little breathing room around the page content. */
+.content-panel {
+  background: white;
+  border: 1px solid #e0e4e8;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+/* A light top border separates our shared footer from the page above.
+   The same spacing works whether the page shows a form or a movie list. */
+.page-footer {
+  padding: 1rem 0;
+  color: #5c636a;
+  background: white;
+  border-top: 1px solid #e0e4e8;
+}
+/* Let the available width determine how many movie cards fit on a row. */
+/* Fit as many columns as the available width can hold.
+   The nested min also lets a card fit a screen narrower than 240 pixels. */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1.25rem;
+}
+/* Scale the poster down to fit its card while keeping its proportions. */
+/* Keep each picture within its card and avoid stretching its proportions.
+   Auto margins centre a smaller poster inside the available card width. */
+.movie-poster {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Limit the form width so the fields remain easy to scan. */
+/* Stop the fields growing too wide on a large screen.
+   The form can still shrink naturally when used on a phone. */
+.movie-form {
+  max-width: 600px;
+}
+
+/* Keep a readable fallback in the space where a picture would be.
+   Flex places the message comfortably in the middle of that space. */
+.missing-poster {
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

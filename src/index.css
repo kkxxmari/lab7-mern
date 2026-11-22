@@ -1,0 +1,11 @@
+/* Remove the browser margin so our shared layout starts at the window edges.
+   A soft background makes the white content panel easier to distinguish. */
+body {
+  margin: 0;
+  background: #eef1f4;
+}
+/* Keep the page subtitle lighter than the main greeting.
+   This affects headings consistently across the three React routes. */
+h2 {
+  font-weight: 400;
+}
